@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود رمز</title>
+    <style>
+        * {
+            box-sizing: border-box; /* تنظیم box-sizing به border-box */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #000;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: slideDown 2s ease;
+        }
+
+        .container {
+            background-color: rgba(0, 123, 255, 0.9);
+            padding: 20px; /* کاهش فضای داخلی */
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 300px; /* کاهش عرض کادر */
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .container:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #2575fc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #28a745;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 2em;
+        }
+
+        .response {
+            text-align: center;
+            margin-top: 20px;
+            color: #fff;
+            font-size: 1.5em;
+            overflow-wrap: break-word;
+        }
+
+        .green {
+            color: #fff;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">🌟 طراحی شده توسط حاج امیر 🌟</div>
+
+<div class="container">
+    <h2>ورود رمز</h2>
+    <input type="text" id="userInput" placeholder="رمز خود را وارد کنید">
+    <button onclick="processCode()">ارسال</button>
+    <div class="error" id="errorMessage"></div>
+    <div class="response" id="responseMessage"></div>
+</div>
+
+<script>
+    const responses = {
+        "8585": `ipv4👇👇<br>10.202.10.10<br>29.80.132.23<br><br>ipv6👇👇<br>609b:eafc:a86:218d:d104:27c1:dfa9:8543<br>662f:4efa:568c:4eb5:f16f:220:798d:4369<br><br>حتما قبلش دی ان اس تون رو پاک سازی دیتا بزنید<br>و بعد از اون هم گوشی رو به مدت 10 ثانیه روی حالت پرواز بزارید و بعد<br>کد هارو به ترتیب وارد کنید.<br>امید وارم که لذت ببرید🙏🗿`,
+        "10": `سلام!<br>من امیرمهدی حاجی بیگلو هستم.<br>کلاس دهم-شبکه و نرم افزار<br>من متولد :<br><span class="green">1388/5/15</span><br>هستم و خوشحالم که به وب سایت من اومدی.<br>موفق و شاد باشید! 🎉😊`
+    };
+
+    function processCode() {
+        const userInput = document.getElementById('userInput').value;
+        const errorMessage = document.getElementById('errorMessage');
+        const responseMessage = document.getElementById('responseMessage');
+
+        errorMessage.textContent = '';
+        responseMessage.innerHTML = '';
+
+        if (responses[userInput]) {
+            responseMessage.innerHTML = `پاسخ شما:<br><br>${responses[userInput]}`;
+        } else {
+            errorMessage.textContent = 'رمز اشتباه است، لطفاً رمز درست را وارد کنید';
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
